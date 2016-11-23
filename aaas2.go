@@ -22,113 +22,230 @@ func index(c *gin.Context) {
 	adventDay := t.Day()
 	description := ""
 	saintImage := ""
-	var readings [4]string
+	reading := ""
+	psalm := ""
+	acclamation := ""
+	gospel := ""
+
+	adventDay = 4 // Debug
 
 	switch adventDay {
 	case 1:
-		description = "1st Sunday of Advent"
+		description = ""
 		saintImage = ""
-		readings = append("Is 63:16b-17, 19b,  64:2-7/1", "Cor 1:3-9", "Mk 13:33-37")
-
+		reading = ""
+		psalm = ""
+		acclamation = ""
+		gospel = ""
 	case 2:
-		description = "Feast of Saint Andrew, the apostle"
-		saintImage = "https://en.wikipedia.org/wiki/Andrew_the_Apostle#/media/File:Artus_Wolffort_-_St_Andrew_-_WGA25857.jpg"
-		readings = append("Is 2:1-5", "Mt 8:5-11")
+		description = "First Monday of Advent"
+		saintImage = ""
+		reading = "Isaiah 2:1–5: The Lord draws all the nations together into the eternal peace of God's kingdom."
+		psalm = "Ps 121: 1–2. 4–5. 6–9 r. 1: I rejoiced when I heard them say:'Let us go to God's house.'"
+		acclamation = "Ps 79:4: God of hosts, bring us back: let your face shine on us and we shall be saved."
+		gospel = "Matthew 8:5–11: Many will come from east and west to take their places in the kingdom of heaven."
 	case 3:
-		description = "Tuesday of the 1st Week"
+		description = "First Tuesday of Advent"
 		saintImage = ""
-		readings = append("Is 11:1-10", "Lk 10:21-24")
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 4:
-		description = "Wednesday of the 1st Week"
+		description = "First Wednesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 25:6–10: The Lord invites us to his banquet and wipes away the tears from every cheek."
+		psalm = "Ps 22 r. 6: In the Lord's own house shall I dwell for ever and ever."
+		acclamation = "Is 33:22: The Lord is our judge, the Lord is our lawgiver, the Lord our king and our saviour."
+		gospel = "Matthew 15:29–37: Jesus cures many and multiplies the loaves."
 	case 5:
-		description = "Saint Francis Xavier"
-		saintImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Franciscus_de_Xabier.jpg/470px-Franciscus_de_Xabier.jpg"
+		description = "First Thursday of Advent"
+		saintImage = ""
+		reading = "Isaiah 26:1–6: Let the upright nation come in, she, the faithful one."
+		psalm = "Ps 117: 1. 8–9. 19–21. 25–27 r. 26: Blessed in the name of the Lord is he who comes. or Alleluia!."
+		acclamation = "Is 40: 9–10:	Shout with a loud voice, joyful messenger to Jerusalem. Here is the Lord God coming with power."
+		gospel = "Matthew 7:21. 24–27: The person who does the will of my Father will enter the kingdom of heaven."
 	case 6:
-		description = "Friday of the 1st Week, Immaculate Conception"
-		saintImage = "https://en.wikipedia.org/wiki/John_of_Damascus#/media/File:John_Damascus_(arabic_icon).gif"
+		description = "First Friday of Advent"
+		saintImage = ""
+		reading = "Isaiah 29:17–24:	That days the eyes of the blind will see."
+		psalm = "Ps 26: 1. 4. 13–14 r. 1: The Lord is my light and my help."
+		acclamation = "cf. Is 45:8: Send victory like a dew, you heavens, and let the clouds rain it down.Let the earth open and bring forth the saviour."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 7:
-		description = "Saturday of the 1st Week, Juan Diego"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 8:
-		description = "Second Sunday in Advent"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 9:
-		description = "Saint Ambrose, consular prefect of Liguria and Emilia before becoming bishop of Milan by popular acclamation in 374"
-		saintImage = "https://en.wikipedia.org/wiki/Ambrose#/media/File:AmbroseOfMilan.jpg"
-	case 10:
-		description = "Immaculate Conception"
-		saintImage = "https://en.wikipedia.org/wiki/Mary_(mother_of_Jesus)#/media/File:Vladimirskaya.jpg"
-	case 11:
-		description = "Wednesday of the 2nd Week, Saint Juan Diego Cuauhtlatoatzin"
-		saintImage = "https://en.wikipedia.org/wiki/Juan_Diego#/media/File:MIguel_Cabrera_-_Fiel_retrato_do_vener%C3%A1vel_Juan_Diego.jpg"
-	case 12:
-		description = "Thursday of the 2nd Week"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
+	case 10:
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
+	case 11:
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
+	case 12:
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 13:
-		description = "Friday of the 2nd Week, Saint Damasus I, Pope"
-		saintImage = "https://upload.wikimedia.org/wikipedia/commons/f/fa/Saintdamasus.jpg"
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 14:
-		description = "Saturday of the 2nd Week, Our Lady of Guadalupe"
-		saintImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/1531_Nuestra_Se%C3%B1ora_de_Guadalupe_anagoria.jpg/275px-1531_Nuestra_Se%C3%B1ora_de_Guadalupe_anagoria.jpg"
-	case 15:
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 		description = "Third Sunday of Advent"
 		saintImage = ""
 	case 16:
-		description = "Saint John of the Cross, Priest, Doctor"
-		saintImage = "https://en.wikipedia.org/wiki/John_of_the_Cross#/media/File:Zurbar%C3%A1n_St._John_of_the_Cross.jpg"
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 17:
-		description = "Tuesday of the 3rd Week"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 18:
-		description = "Wednesday of the 3rd Week"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 19:
-		description = "17th of December"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 20:
-		description = "18th of December"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 21:
-		description = "19th of December"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 22:
-		description = "4th Sunday of Advent"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 23:
-		description = "21st of Decemeber, Saint Peter Canisius"
-		saintImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Saint_Petrus_Canisius.jpg/200px-Saint_Petrus_Canisius.jpg"
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 24:
-		description = "22nd of December"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 25:
-		description = "23rd of December, Saint John of Kęty"
-		saintImage = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Jan_Kanty.jpg"
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 26:
-		description = "24th of December, Christmas Eve"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 27:
-		description = "Christmas Day - Solenmity"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	case 28:
-		description = "Saint Stephen, the First Martyr"
-		saintImage = "https://upload.wikimedia.org/wikipedia/commons/d/d3/St-stephen.jpg"
-	case 29:
-		description = "The Holy Family"
+		description = "First Tuesday of Advent"
 		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
+	case 29:
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	default:
-		description = "It's not advent yet"
+		description = "First Tuesday of Advent"
+		saintImage = ""
+		reading = "Isaiah 11:1–10: On him the spirit of the Lord rests."
+		psalm = "Ps 71: 1–2. 7–8. 12–13. 17 r. 7: In his days justice shall flourish and peace till the moon fails."
+		acclamation = "Ps 84:8:	Let us see, O Lord, your mercy and give us your saving help."
+		gospel = "Luke 10:21–24: Jesus is filled with joy by the Holy Spirit."
 	}
 
-	content := gin.H{"APIVersion": 2.0, "DayOfAdvent": adventDay, "Description": description, "SaintImage": saintImage}
+	content := gin.H{"APIVersion": 2.0, "DayOfAdvent": adventDay, "Reading": reading, "Description": description, "Responsorial": psalm, "SaintImage": saintImage, "Collect": acclamation, "Gospel": gospel}
 	c.IndentedJSON(200, content)
 }
 
 func main() {
 
-	start, _ := time.Parse(time.RFC822, "06 Dec 17 00:00 UTC")
-	end, _ := time.Parse(time.RFC822, "24 Dec 17 23:59 UTC")
-	today, _ := time.Parse(time.RFC822, "10 Nov 17 13:46 UTC")
+	start, _ := time.Parse(time.RFC822, "06 Dec 16 00:00 UTC")
+	end, _ := time.Parse(time.RFC822, "24 Dec 16 23:59 UTC")
+	today, _ := time.Parse(time.RFC822, "06 Dec 16 13:46 UTC")
 	fmt.Println(start, end, today)
 	app := gin.Default()
 
