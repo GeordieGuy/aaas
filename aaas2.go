@@ -302,6 +302,6 @@ func main() {
 		app.GET("/api/aaas/v2/", timeError)
 	}
 
-	app.Run(":8000")
+	app.Run(":80")
 
 }
