@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"io"
 	"io/ioutil"
 	"log"
@@ -55,6 +54,7 @@ func index(c *gin.Context) {
 
 	t := time.Now()
 	adventDay := t.Day()
+	adventMonth = t.Month()
 	description := ""
 	saintImage := ""
 	reading := ""
@@ -62,23 +62,21 @@ func index(c *gin.Context) {
 	acclamation := ""
 	gospel := ""
 
-	adventDay = 4 // Debug
-
 	switch adventDay {
 	case 1:
-		description = ""
+
+		description = "The First Sunday of Advent"
 		saintImage = ""
 		reading = ""
 		psalm = ""
 		acclamation = ""
 		gospel = ""
 	case 2:
-		description = "First Monday of Advent"
-		saintImage = ""
-		reading = "Isaiah 2:15: The Lord draws all the nations together into the eternal peace of God's kingdom."
-		psalm = "Ps 121: 12. 45. 69 r. 1: I rejoiced when I heard them say:'Let us go to God's house.'"
+		description = "1st Friday in Advent"
+		saintImage = "http://www.catholic.org/files/images/saints/168.jpg"
+		reading = "Isaiah 49:22-23: I will soon lift up my hand to the nations, and raise my signal to the peoples; and they shall bring your sons in their bosom, and your daughters shall be carried on their shoulders. Kings shall be your foster-fathers, and their queens your nursing-mothers. With their faces to the ground they shall bow down to you, and lick the dust of your feet. Then you will know that I am the Lord; those who wait for me shall not be put to shame."
 		acclamation = "Ps 79:4: God of hosts, bring us back: let your face shine on us and we shall be saved."
-		gospel = "Matthew 8:511: Many will come from east and west to take their places in the kingdom of heaven."
+		gospel = "Luke 10:10-9, The Lord appointed seventy others and sent them on ahead of him in pairs to every town and place where he himself intended to go. He said to them, “The harvest is plentiful, but the laborers are few; therefore ask the Lord of the harvest to send out laborers into his harvest. Go on your way. See, I am sending you out like lambs into the midst of wolves. Carry no purse, no bag, no sandals; and greet no one on the road. Whatever house you enter, first say, ‘Peace to this house!’ And if anyone is there who shares in peace, your peace will rest on that person; but if not, it will return to you. Remain in the same house, eating and drinking whatever they provide, for the laborer deserves to be paid. Do not move about from house to house. Whenever you enter a town and its people welcome you, eat what is set before you; cure the sick who are there, and say to them, ‘The kingdom of God has come near to you."
 	case 3:
 		description = "First Tuesday of Advent"
 		saintImage = ""
@@ -289,8 +287,8 @@ func main() {
 
 	start, _ := time.Parse(time.RFC822, "06 Dec 16 00:00 UTC")
 	end, _ := time.Parse(time.RFC822, "24 Dec 16 23:59 UTC")
-	today, _ := time.Parse(time.RFC822, "06 Dec 16 13:46 UTC")
-	fmt.Println(start, end, today)
+	today, _ := time.Parse(time.RFC822, "25 Nov 16 13:46 UTC") // debug hack
+
 	app := gin.Default()
 
 	if inTimeSpan(start, end, today) {
@@ -298,7 +296,7 @@ func main() {
 		app.GET("/api/aaas/v2/", index)
 
 	} else {
-
+		Warning.Println("Received API call when it isn't advent yet, or isn't advent anymore")
 		app.GET("/api/aaas/v2/", timeError)
 	}
 
