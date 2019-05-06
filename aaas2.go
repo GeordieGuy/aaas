@@ -54,7 +54,7 @@ func index(c *gin.Context) {
 
 	t := time.Now()
 	adventDay := t.Day()
-	adventMonth = t.Month()
+	adventMonth := t.Month()
 	description := ""
 	saintImage := ""
 	reading := ""
